@@ -18,8 +18,8 @@ def getPositiveNumber(prompt):
             print("Please enter a positive number greater than zero.")
     return value
 
-def calculatedim(weight, height):
-    dim = (weight/(height*height))*703
+def calculatedim(length, width, height):
+    dim = (length*width*height)
     return dim
 
 def getCategory(dim):
@@ -27,28 +27,29 @@ def getCategory(dim):
     Determine the BMI category based on value.
     """
     category = ""
-    if dim < 18.5:
-        category = "Underweight"
-    elif dim < 25:
+    if dim < 20:
+        category = "Small"
+    elif dim < 50:
         category = "Normal"
-    elif dim < 30:
-        category = "Overweight"
+    elif dim < 80:
+        category = "Large"
     else:
-        category = "Obese"
+        category = "Massive"
     return category
 
 # --- Main Program ---
-print("Manufacturing Aid Program (Python)")
+print("Manufacturing Aid Program")
 
 # Ask for user's name
 name = input("Enter your name: ")
 
-# Get valid positive inputs for weight and height
-weight = getPositiveNumber("Enter weight (lbs): ")
+# Get valid positive inputs for length, width, and height 
+length = getPositiveNumber("Enter length (inches): ")
+width = getPositiveNumber("Enter width (inches): ")
 height = getPositiveNumber("Enter height (inches): ")
 
-bmiValue = calculatedim(weight, height)
-truebmi = round(bmiValue)
-category = getCategory(bmiValue)
+dimValue = calculatedim(length, width, height)
+truebmi = round(dimValue)
+category = getCategory(dimValue)
 
-print(f"Name:{name}", f"Your BMI is:{truebmi}", f"Status:{category}")
+print(f"Name:{name}", f"your part is {truebmi} cubic inches,", f"Status:{category}")
