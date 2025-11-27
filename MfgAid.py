@@ -43,13 +43,15 @@ print("Manufacturing Aid Program")
 # Ask for user's name
 name = input("Enter your name: ")
 
+# Get material preference
+material = input("Enter choice of material, 'plastic' or 'metal'?: ")
+
 # Get valid positive inputs for length, width, and height 
 length = getPositiveNumber("Enter length (inches): ")
 width = getPositiveNumber("Enter width (inches): ")
 height = getPositiveNumber("Enter height (inches): ")
 
 dimValue = calculatedim(length, width, height)
-truebmi = round(dimValue)
 category = getCategory(dimValue)
 
-print(f"Name:{name}", f"your part is {truebmi} cubic inches,", f"Status:{category}")
+print(f"Name:{name}", f"your part is {dimValue} cubic inches,", f"Status:{category}")
