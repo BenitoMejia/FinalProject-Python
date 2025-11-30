@@ -1,7 +1,7 @@
 # ---------------------------------------------
 # Manufacturing Aid Program
 # Get user input for material type, part length, width, and height
-# Calculate and display Mfg Process and Picture
+# Calculate and display Mfg Equipment and Picture
 # ---------------------------------------------
 
 def getPositiveNumber(prompt):
@@ -31,8 +31,10 @@ def getCategory(dim, material):
         category = "Mid-size VF-1 Vertical Mill" #Limit is 20" x 16" x 20"
     elif dim <= 61440 and material == 'metal':
         category = "Industrial VF-6/40 Vertical Mill" #Limit is 64" x 32" x 30"
-    elif dim < 80:
-        category = "Large"
+    elif dim <= 738 and material == 'plastic':
+        category = "Ender 3 Pro 3D Printer" #Limit is 8.7" x 8.7" x 9.8"
+    elif dim <= 8000 and material == 'plastic':
+        category = "Sovol SV08 Max 3D Printer" #Limit is 20" x 20" x 20"
     else:
         category = "Process cannot be defined"
     return category
@@ -54,4 +56,4 @@ height = getPositiveNumber("Enter height (inches): ")
 dimValue = calculatedim(length, width, height)
 category = getCategory(dimValue, material) 
 
-print(f"Name:{name},", f"your part is {dimValue} cubic inches,", f"Status:{category}")
+print(f"Name:{name},", f"the suggested Manufacturing Equipment that should be used is: {category}")
