@@ -22,19 +22,19 @@ def calculatedim(length, width, height):
     dim = (length*width*height)
     return dim
 
-def getCategory(dim):
+def getCategory(dim, material):
     """
-    Determine the BMI category based on value.
+    Determine the  based on value.
     """
     category = ""
-    if dim < 20:
-        category = "Small"
-    elif dim < 50:
-        category = "Normal"
+    if dim <= 6400 and material == 'metal':
+        category = "Mid-size VF-1 Vertical Mill" #Limit is 20" x 16" x 20"
+    elif dim <= 61440 and material == 'metal':
+        category = "Industrial VF-6/40 Vertical Mill" #Limit is 64" x 32" x 30"
     elif dim < 80:
         category = "Large"
     else:
-        category = "Massive"
+        category = "Process cannot be defined"
     return category
 
 # --- Main Program ---
@@ -44,7 +44,7 @@ print("Manufacturing Aid Program")
 name = input("Enter your name: ")
 
 # Get material preference
-material = input("Enter choice of material, 'plastic' or 'metal'?: ")
+material = input("Enter material, 'plastic' or 'metal'?: ")
 
 # Get valid positive inputs for length, width, and height 
 length = getPositiveNumber("Enter length (inches): ")
@@ -52,6 +52,6 @@ width = getPositiveNumber("Enter width (inches): ")
 height = getPositiveNumber("Enter height (inches): ")
 
 dimValue = calculatedim(length, width, height)
-category = getCategory(dimValue)
+category = getCategory(dimValue, material) 
 
-print(f"Name:{name}", f"your part is {dimValue} cubic inches,", f"Status:{category}")
+print(f"Name:{name},", f"your part is {dimValue} cubic inches,", f"Status:{category}")
