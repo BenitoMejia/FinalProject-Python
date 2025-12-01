@@ -39,6 +39,12 @@ def getCategory(dim, material):
         category = "Process cannot be defined"
     return category
 
+from PIL import Image 
+
+filename = "Image/CNC VF-1.png"
+
+img = Image.open(filename)
+
 # --- Main Program ---
 print("Manufacturing Aid Program")
 
@@ -57,3 +63,4 @@ dimValue = calculatedim(length, width, height)
 category = getCategory(dimValue, material) 
 
 print(f"Name:{name},", f"the suggested Manufacturing Equipment that should be used is: {category}")
+img.show()
