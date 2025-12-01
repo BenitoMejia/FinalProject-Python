@@ -43,8 +43,16 @@ def getCategory(dim, material):
 from PIL import Image 
 
 filename = "Image/CNC VF-1.png"
-
 img = Image.open(filename)
+
+filename2 = "Image/CNC VF-6.png"
+img2 = Image.open(filename2)
+
+filename3 = "Image/Ender 3 Pro.jpg"
+img3 = Image.open(filename3)
+
+filename4 = "Image/SV08 Max.jpg"
+img4 = Image.open(filename4)
 
 # --- Main Program ---
 print("Manufacturing Aid Program")
@@ -65,7 +73,14 @@ category = getCategory(dimValue, material)
 
 print(f"Name:{name},", f"the suggested Manufacturing Equipment that should be used is: {category}")
 
+#Displaying the image
 if dimValue <= 6400 and material == 'metal':
-    img.show() #Displaying the image
+    img.show() 
+elif dimValue <= 61440 and material == 'metal':
+    img2.show()
+elif dimValue <= 738 and material == 'plastic':
+    img3.show()
+elif dimValue <= 8000 and material == 'plastic':
+    img4.show()
 else:
     print(f"Image cannot be shown")
