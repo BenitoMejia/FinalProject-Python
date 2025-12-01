@@ -39,6 +39,7 @@ def getCategory(dim, material):
         category = "Process cannot be defined"
     return category
 
+#Importing Images via Pillow
 from PIL import Image 
 
 filename = "Image/CNC VF-1.png"
@@ -63,4 +64,4 @@ dimValue = calculatedim(length, width, height)
 category = getCategory(dimValue, material) 
 
 print(f"Name:{name},", f"the suggested Manufacturing Equipment that should be used is: {category}")
-img.show()
+img.show() #Displaying the image
