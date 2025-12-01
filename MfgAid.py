@@ -64,4 +64,8 @@ dimValue = calculatedim(length, width, height)
 category = getCategory(dimValue, material) 
 
 print(f"Name:{name},", f"the suggested Manufacturing Equipment that should be used is: {category}")
-img.show() #Displaying the image
+
+if dimValue <= 6400 and material == 'metal':
+    img.show() #Displaying the image
+else:
+    print(f"Image cannot be shown")
